@@ -38,3 +38,6 @@ print(sn(56, 67))
 # os.chdir('newFolder') # cambiando el directorio actual
 # os.getcwd() # se obtiene el directorio de trabajo actual
 # os.rmdir('newFolder')
+
+# Modulos del sistema
+# pasando argumentos a un archivo .py a traves de una linea de comandos
