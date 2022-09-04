@@ -71,10 +71,7 @@ verificador(0)
 # =============================================================================
 # DECORADORES
 
-# funcion normal
-
-def welcome():
-    return print('welcome to my house')
+# Decorador
 
 def upperCase_decorator(function):
     def wrapper():
@@ -83,19 +80,53 @@ def upperCase_decorator(function):
         return poner_mayusculas
     return wrapper 
 
-g = upperCase_decorator(welcome)
-print(g())
+# SIN USAR UN DECORADOR
+def saludo():
+    return 'Hola mundo'
+
+g = upperCase_decorator(saludo)
+g()
+
+# USANDO EL DECORADOR
+@upperCase_decorator
+def presentacion():
+    return 'Hola soy gerson pereyra'
+
+presentacion()
+
+# Decorador con parametros
+
+def decorador(function):
+    def wrapper(*args, **kwargs):
+        print("Esta es la funcion decorada\n")
+        resultado = function(*args, **kwargs)
+        print("Fin de la decoracion")
+        
+        return resultado
+    return wrapper
 
 
-'asdasdasd'.upper()
-    
+@decorador
+def suma(a, b):
+    return a+b
+
+print(suma(2, 20))
+
+# decorador
+
+def separador(function):
+    def wrapper():
+        res = function()
+        return res.split()
+    return wrapper
+
+# se ejecuta de abajo hacia arriba
+@separador
+@upperCase_decorator
+def presentacion():
+    return 'Hola soy gerson pereyra'
+
+presentacion()
 
 
-
-
-
-
-
-
-
-
+['asdasd','asdasd'].upper()
