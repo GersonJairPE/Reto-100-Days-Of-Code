@@ -130,3 +130,74 @@ presentacion()
 
 
 ['asdasd','asdasd'].upper()
+
+# =============================================================================
+# FUNCION MAP
+
+def factorial(n):
+    i=1
+    p=1
+    while i<=n:
+        p*=i
+        i+=1
+    return 
+
+print(list(map(factorial, [1,2,3,4,5])))
+
+lista=['1','2','3','4','5']
+print(list(map(int, lista)))
+
+# FUNCION MAP CON FUNCION LAMBDA
+
+print(list(map(lambda x: x**2, [1,2,3,4,5])))
+
+print(list(map(lambda x: x.upper(), ['g','e','r','s','o','n'])))
+
+# =============================================================================
+# FUNCION FILTRO
+# funcion que muestra los elementos que cumplen la condicion de una funcion 
+# que devuelve un booleano
+
+numbers = [1, 2, 3, 4, 5]
+
+
+def es_par(num):
+    if num % 2 ==0:
+        return True
+    return False
+
+fn = filter(es_par, numbers)
+print(list(fn))
+
+
+def es_impar(num):
+    if num%2 != 0:
+        return True
+    return False
+
+fn2 = filter(es_impar, numbers)
+print(list(fn2))
+
+
+numeros = [i for i in range(1,101)]
+
+
+# filtrar los multiplos de 7
+
+def es_multp_7(num):
+    if num%7==0:
+        return True
+    return False
+
+fn3 = filter(es_multp_7, numeros)
+print(list(fn3))
+
+
+# =============================================================================
+# FUNCION REDUCE
+
+def suma(a,b):
+    return int(a)+int(b)
+
+fn4 = reduce(suma, numeros)
+print(list(fn4))
